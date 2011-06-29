@@ -21,4 +21,10 @@
 
   </browser:pages>
 
+  <utility
+      provides="pmr2.rest.workspace.interfaces.IWorkspaceExtraUtil"
+      component=".util.WorkspaceExposureJsonField"
+      name="exposures"
+      />
+
 </configure>
