@@ -1,0 +1,24 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    >
+
+  <browser:pages
+      for="pmr2.app.exposure.interfaces.IExposure"
+      class=".view.ExposureJsonView"
+      permission="zope2.View"
+      >
+
+    <browser:page
+        name="contents.json"
+        attribute="contents"
+        />
+
+    <browser:page
+        name="info.json"
+        attribute="info"
+        />
+
+  </browser:pages>
+
+</configure>
