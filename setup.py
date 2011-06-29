@@ -24,6 +24,7 @@ setup(name='pmr2.rest.exposure',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'pmr2.rest.workspace',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
