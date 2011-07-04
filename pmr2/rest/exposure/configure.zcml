@@ -19,6 +19,24 @@
         attribute="info"
         />
 
+    <browser:page
+        name="export.json"
+        attribute="export"
+        />
+
+  </browser:pages>
+
+  <browser:pages
+      for="pmr2.app.exposure.interfaces.IExposure"
+      class=".view.ExposureJsonEdit"
+      permission="cmf.ModifyPortalContent"
+      >
+
+    <browser:page
+        name="rollover.json"
+        attribute="rollover"
+        />
+
   </browser:pages>
 
   <utility
