@@ -9,7 +9,8 @@ This module provides a web service access for PMR2 exposure.
     >>> from pmr2.testing.base import TestRequest
     >>> from pmr2.rest.workspace import base
     >>> from pmr2.rest.exposure import view
-    >>> base.BaseJsonView.indent = 4
+    >>> from pmr2.rest.exposure import page
+    >>> base.JsonGetView.indent = 4
     >>> request = TestRequest()
     >>> notetext = u'This is added.'
     >>> ef = ExposureFile('test')
@@ -24,8 +25,9 @@ This module provides a web service access for PMR2 exposure.
 Instantiate the Exposure JSON view, and acquire some info.
 ::
 
-    >>> v = view.ExposureJsonView(self.portal.exposure['1'], request)
-    >>> result = v.info()
+    >>> v = view.ExposureRestView(self.portal.exposure['1'], request)
+    >>> p = page.ExposureInfoView(v, request)
+    >>> result = p()
     >>> print result
     {
         "commit_id": "2",
@@ -36,7 +38,8 @@ Instantiate the Exposure JSON view, and acquire some info.
 Can also retrieve contents from it.
 ::
 
-    >>> result = v.contents()
+    >>> p = page.ExposureContentsView(v, request)
+    >>> result = p()
     >>> print result
     {
         "keys": [
@@ -54,7 +57,8 @@ Can also retrieve contents from it.
 Lastly extract the exposure profile in JSON format.
 ::
 
-    >>> result = v.export()
+    >>> p = page.ExposureExportView(v, request)
+    >>> result = p()
     >>> print result
     [
         [
@@ -100,8 +104,8 @@ There is also a utility to rollover exposures using the edit form.
     >>> request = TestRequest(form={
     ...     'commit_id': '3',
     ... })
-    >>> v = view.ExposureJsonEdit(self.portal.exposure['1'], request)
-    >>> result = v.rollover()
+    >>> p = page.ExposureRolloverPostView(v, request)
+    >>> result = p()
     >>> print result
     {
         "location": "http://nohost/plone/exposure/...
