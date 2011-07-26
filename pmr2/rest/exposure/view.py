@@ -5,3 +5,9 @@ class ExposureRestView(RestView):
     """\
     Exposure rest view.
     """
+
+
+class ExposureFileRestView(RestView):
+    """\
+    Exposure file rest view.
+    """
