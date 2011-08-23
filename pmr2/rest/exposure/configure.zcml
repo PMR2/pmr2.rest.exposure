@@ -39,13 +39,6 @@
       />
 
   <browser:page
-      for=".view.ExposureRestView"
-      class=".page.ExposureRolloverPostView"
-      name="rollover.json"
-      permission="cmf.ModifyPortalContent"
-      />
-
-  <browser:page
       for=".view.ExposureFileRestView"
       class=".page.ExposureFileInfoView"
       name="info.json"

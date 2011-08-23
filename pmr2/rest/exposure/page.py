@@ -4,7 +4,6 @@ from zope.publisher.browser import BrowserView
 
 from Products.CMFCore.utils import getToolByName
 from pmr2.rest.workspace.base import JsonGetView
-from pmr2.rest.workspace.base import JsonPostView
 from pmr2.app.exposure.interfaces import IExposureSourceAdapter
 from pmr2.app.exposure.browser.browser import ExposurePort
 from pmr2.app.exposure.browser.browser import ExposurePortCommitIdForm
@@ -67,29 +66,6 @@ class ExposureExportView(JsonGetView):
         exposure = self.context.context
         port = ExposurePort(exposure, self.request)
         result = list(port.export())
-        return self.dumps(result)
-
-
-class ExposureRolloverPostView(JsonPostView):
-    """\
-    Exposure edits.
-    """
-
-    def render(self):
-        # XXX mocking up the form fields until I can figure out a better
-        # way to pass in the values and have them prepared internally.
-        exposure = self.context.context
-        self.request.form['form.widgets.commit_id'] = self.request['commit_id']
-        self.request.form['form.buttons.apply'] = 1
-        form = ExposurePortCommitIdForm(exposure, self.request)
-        form.disableAuthenticator = True
-        form.update()
-        # XXX there may be errors
-        # XXX need error handling, return error status code on failures
-        location = form.nextURL()
-        result = {
-            'location': location,
-        }
         return self.dumps(result)
 
 

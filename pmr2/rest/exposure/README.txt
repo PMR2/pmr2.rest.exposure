@@ -123,21 +123,3 @@ The viewer would extract the info
     >>> result = p()
     >>> print result
     {'note': u'This is added.'}
-
--------
-Writing
--------
-
-There is also a utility to rollover exposures using the edit form.
-::
-
-    >>> v = view.ExposureRestView(self.portal.exposure['1'], request)
-    >>> request = TestRequest(form={
-    ...     'commit_id': '3',
-    ... })
-    >>> p = page.ExposureRolloverPostView(v, request)
-    >>> result = p()
-    >>> print result
-    {
-        "location": "http://nohost/plone/exposure/...
-    }
