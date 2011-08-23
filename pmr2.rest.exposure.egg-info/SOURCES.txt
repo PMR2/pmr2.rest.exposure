@@ -13,7 +13,11 @@ pmr2.rest.exposure.egg-info/not-zip-safe
 pmr2.rest.exposure.egg-info/requires.txt
 pmr2.rest.exposure.egg-info/top_level.txt
 pmr2/rest/__init__.py
+pmr2/rest/exposure/README.txt
 pmr2/rest/exposure/__init__.py
 pmr2/rest/exposure/configure.zcml
+pmr2/rest/exposure/page.py
 pmr2/rest/exposure/util.py
 pmr2/rest/exposure/view.py
+pmr2/rest/exposure/tests/__init__.py
+pmr2/rest/exposure/tests/test_doctests.py
