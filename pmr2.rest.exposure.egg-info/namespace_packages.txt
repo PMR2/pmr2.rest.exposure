@@ -1,2 +1,0 @@
-pmr2
-pmr2.rest
