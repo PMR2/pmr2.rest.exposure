@@ -64,6 +64,7 @@ Lastly extract the exposure profile in JSON format.
         [
             "test",
             {
+                "hidden_views": [],
                 "views": [
                     [
                         "edited_note",
